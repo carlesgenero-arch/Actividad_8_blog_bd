@@ -1,18 +1,18 @@
 GET http://localhost:3000/api/autores
 
 ###
-GET http://localhost:3000/api/autores/568
+GET http://localhost:3000/api/autores/2
 Content-Type: application/json
 
 
-###
+### Nuevo Usuario creado
 POST http://localhost:3000/api/autores
 Content-Type: application/json
 
 {
     "nombre": "Fernando Robles",
     "email": "frob@example.com",
-    "imagen": "https://www.publicdomainpictures.net/pictures/40000/velka/young-woman-portrait.jpg "
+    "imagen_url": "https://www.publicdomainpictures.net/pictures/40000/velka/young-woman-portrait.jpg"
 }
 
 
