@@ -1,6 +1,11 @@
 GET http://localhost:3000/api/autores
 
 ###
+GET http://localhost:3000/api/autores/568
+Content-Type: application/json
+
+
+###
 POST http://localhost:3000/api/autores
 Content-Type: application/json
 
@@ -12,8 +17,12 @@ Content-Type: application/json
 
 
 ###POSTS
-GET http://localhost:3000/api/posts
+GET http://localhost:3000/api/posts/autores/3
+Content-Type: application/json
 
+### 
+GET http://localhost:3000/api/posts/5
+Content-Type: application/json
 
 ###
 POST http://localhost:3000/api/posts
