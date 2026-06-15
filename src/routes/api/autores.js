@@ -2,7 +2,7 @@ const { getAll, create, getById } = require('../../controllers/autores.controlle
 const router = require ('express').Router();
 
 router.get ('/', getAll);
-router.get ('/:autorid',getById)
+router.get ('/:autorId',getById)
 router.post ('/', create)
 
 

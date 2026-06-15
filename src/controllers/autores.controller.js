@@ -9,8 +9,15 @@ const getAll = async (req, res) => {
     }  
 }
 
-const getById = (req, res) => {
-
+const getById = async (req, res) => {
+    try {
+        const {autorId} = req.params
+        const autor = await AutorModel.selectById(autorId);
+        res.json(autor)
+    } catch (error) {
+        res.status(500).json ({message:' id del autor no recibido'})
+    }
+        
 }
 
 
@@ -18,9 +25,6 @@ const create = async (req, res) => {
     try {
         const result = await AutorModel.insert (req.body)
         const nuevoCliente = await AutorModel.selectById (result.insertId)
-        if(!nuevoCliente){
-        return res.status(404).json ({message: 'No existe el cliente con ese Id'});
-        }
         res.status(201).json(nuevoCliente);
     } catch (error) {
         console.error(error);

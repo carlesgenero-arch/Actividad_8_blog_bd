@@ -5,7 +5,7 @@ const router = require ('express').Router();
 
 
 router.get ('/', getAll);
-router.get ('/:postId', getById)
+router.get ('/:id', getById)
 router.post ('/', create)
 
 
