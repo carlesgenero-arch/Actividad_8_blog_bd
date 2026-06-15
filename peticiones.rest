@@ -1,0 +1,38 @@
+
+##### AUTORES ######
+### AUTORES BY ID
+GET http://localhost:3000/api/autores/2
+
+### TODOS LOS POSTS ESCRITOS POR AUTOR
+GET http://localhost:3000/api/autores/4/posts
+
+### Nuevo Usuario creado
+POST http://localhost:3000/api/autores
+Content-Type: application/json
+
+{
+    "nombre": "Alberto cerezo",
+    "email": "Acerezo@example.com",
+    "imagen_url": "https://www.publicdomainpictures.net/pictures/40000/velka/old-man-portrait.jpg"
+}
+
+
+###POSTS GET ALL con datos del autor
+GET http://localhost:3000/api/posts
+
+
+### GET ID
+GET http://localhost:3000/api/posts/5
+
+
+### CREAR POST
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+  "titulo": "El auge de la energía solar en Europa",
+  "descripcion": "Un estudio reciente revela cómo la energía solar se ha convertido en una de las principales fuentes renovables en Europa, impulsada por nuevas políticas y avances tecnológicos.",
+  "categoria": "noticias",
+  "creado_en": "2024-07-02",
+  "Autores_id": "3"
+}
