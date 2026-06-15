@@ -1,8 +1,8 @@
 const PostsModel = require ('../models/posts.model')
 
-const getAll = async (req, res) => {
+const getAllByAutor = async (req, res) => {
     try {
-        const posts = await PostsModel.selectAll()
+        const posts = await PostsModel.selectAllByAutor()
         res.json (posts)
     } catch (error) {
          res.status(500).json({message: 'Hay un error bonito'}) 
@@ -33,4 +33,4 @@ const create = async (req, res) => {
     
 }
 
-module.exports = { getAll, getById, create }
+module.exports = { getAllByAutor, getById, create }

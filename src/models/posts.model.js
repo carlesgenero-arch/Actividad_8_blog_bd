@@ -1,23 +1,36 @@
 const db = require ('../config/db');
 
-const selectAll = async () => {
-     const [result] = await db.query('SELECT * FROM posts');
-    return result;
-}
-
 const selectById = async (postId)=>{
     const [result] = await db.query (
-        'SELECT * FROM posts where idPosts =?',
+        `SELECT
+            idPosts as postId,
+            titulo,
+            descripcion AS cuerpo,
+            categoria,
+            Autores_id AS autor
+            FROM posts
+            WHERE idPosts = ?`,
         [postId]
     );
     if (result.length === 0) return null
     return result [0];
 }
-   
-const selectByAutorId = async (autorId)=> {
-    const [result] = await db.query ('SELECT * FROM posts WHERE Autores_id = ?', [autorId])
-    return result
-}   
+
+const selectAllByAutor = async () => {
+     const [result] = await db.query(`
+        SELECT
+        posts.idPosts, 
+        posts.titulo,
+        autores.id,
+        autores.nombre AS autor,
+        autores.email,
+        autores.imagen_url
+        FROM
+        posts
+        INNER JOIN autores ON posts.Autores_id = autores.id
+        ORDER BY posts.idPosts ASC`);
+    return result;
+}
 
 const insert = async ({titulo, descripcion, categoria, creado_en, Autores_id})=>{
  const [result] = await db.query (`INSERT INTO posts (titulo, descripcion, categoria, creado_en, Autores_id )
@@ -27,8 +40,7 @@ const insert = async ({titulo, descripcion, categoria, creado_en, Autores_id})=>
 }
 
 module.exports = {
-    selectAll,
-    selectByAutorId,
+    selectAllByAutor,
     selectById,
     insert
 }
