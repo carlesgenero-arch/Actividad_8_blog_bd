@@ -1,17 +1,31 @@
 const db = require ('../config/db');
 
-const selectAll = async () => {
-     const [result] = await db.query('SELECT * FROM autores');
-    return result;
-}
-
 const selectById = async (autorId) =>{
     const [result] = await db.query (
-        'SELECT * FROM autores where id = ?',
+        `SELECT
+            id AS autorId,
+            nombre AS autor,
+            email, 
+            imagen_url AS imagen
+         FROM autores
+         WHERE id = ?`,
         [autorId]
     );
     if (result.length === 0) return null
     return result [0];
+}
+
+const selectByPosts =async (autorId)=>{
+    const [result]= await db.query(
+        `SELECT
+            posts.idPosts AS postId,
+            posts.titulo AS titulo
+         FROM posts
+         WHERE posts.Autores_id =?
+         ORDER BY postId ASC`,
+        [autorId]
+    )
+     return result;
 }
 
 const insert = async ({nombre, email, imagen_url})=>{
@@ -22,4 +36,4 @@ const insert = async ({nombre, email, imagen_url})=>{
         return result;
 }
 
-module.exports = { selectAll, selectById, insert}
+module.exports = { selectById, selectByPosts, insert}

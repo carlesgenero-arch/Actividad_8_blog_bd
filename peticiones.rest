@@ -1,19 +1,19 @@
-### TODOS LOS AUTORES
-GET http://localhost:3000/api/autores
 
+##### AUTORES ######
 ### AUTORES BY ID
 GET http://localhost:3000/api/autores/2
 
-
+### TODOS LOS POSTS ESCRITOS POR AUTOR
+GET http://localhost:3000/api/autores/4/posts
 
 ### Nuevo Usuario creado
 POST http://localhost:3000/api/autores
 Content-Type: application/json
 
 {
-    "nombre": "Fernando Pino",
-    "email": "fpino@example.com",
-    "imagen_url": "https://www.publicdomainpictures.net/pictures/40000/velka/young-man-portrait.jpg"
+    "nombre": "Alberto cerezo",
+    "email": "Acerezo@example.com",
+    "imagen_url": "https://www.publicdomainpictures.net/pictures/40000/velka/old-man-portrait.jpg"
 }
 
 
@@ -30,9 +30,9 @@ POST http://localhost:3000/api/posts
 Content-Type: application/json
 
 {
-  "titulo": "Impacto de la automatización en el empleo",
-  "descripcion": "Un análisis sobre cómo la inteligencia artificial y la robótica están transformando el mercado laboral y qué sectores serán los más afectados en los próximos años.",
+  "titulo": "El auge de la energía solar en Europa",
+  "descripcion": "Un estudio reciente revela cómo la energía solar se ha convertido en una de las principales fuentes renovables en Europa, impulsada por nuevas políticas y avances tecnológicos.",
   "categoria": "noticias",
-  "creado_en": "2024-06-18",
-  "Autores_id": "5"
+  "creado_en": "2024-07-02",
+  "Autores_id": "3"
 }
